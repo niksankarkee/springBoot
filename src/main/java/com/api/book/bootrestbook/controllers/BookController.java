@@ -29,7 +29,7 @@ public class BookController {
         if (list.size() <= 0) {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
         }
-        return ResponseEntity.of(Optional.of(list));
+        return ResponseEntity.status(HttpStatus.CREATED).body(list);
     }
 
     @GetMapping("/books/{id}")
@@ -68,10 +68,10 @@ public class BookController {
     }
 
     @PutMapping("/books/{id}")
-    public ResponseEntity<List<Book>> updateBook(@RequestBody Book book, @PathVariable("id") int id) {
+    public ResponseEntity<Book> updateBook(@RequestBody Book book, @PathVariable("id") int id) {
 
         try {
-            List<Book> b = this.bookService.updateBook(book, id);
+            Book b = this.bookService.updateBook(book, id);
             return ResponseEntity.ok().body(b);
 
         } catch (Exception e) {
