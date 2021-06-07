@@ -50,4 +50,26 @@ public class MyController {
 
         return "condition";
     }
+
+    // handling for fragments
+    @GetMapping("/service")
+    public String servicesHandler(Model m) {
+
+        m.addAttribute("title", "This is title, and comming from controller");
+        m.addAttribute("subtitle", "This is sub title, and comming from controller");
+
+        return "service";
+    }
+
+    // for new about
+    @GetMapping("/aboutnew")
+    public String newAbout() {
+        return "aboutNew";
+    }
+
+    // for new contact
+    @GetMapping("/contact")
+    public String newcontact() {
+        return "contact";
+    }
 }
