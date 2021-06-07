@@ -24,7 +24,7 @@ public class BookService {
     public Book getBookById(int id) {
         Book book = null;
         try {
-            this.bookRepository.findById(id);
+            book = this.bookRepository.findById(id);
         } catch (Exception e) {
             e.printStackTrace();
         }
