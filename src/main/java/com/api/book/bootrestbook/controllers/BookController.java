@@ -35,6 +35,7 @@ public class BookController {
     @GetMapping("/books/{id}")
     public ResponseEntity<Book> getBook(@PathVariable("id") int id) {
         Book book = bookService.getBookById(id);
+        System.out.println(book);
         if (book == null) {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
         }
